@@ -11,7 +11,7 @@ function App() {
       name: 'Jana',
       email: 'janascheuble@gmail.com',
       role: 'Web Dev Student'
-    }
+    },
   ]);
 
   const addNewMember = member => {
@@ -21,7 +21,7 @@ function App() {
       email: member.email,
       role: member.role
     };
-    setMembers([...members], newMember);
+    setMembers([...members, newMember]);
   }
 
 
