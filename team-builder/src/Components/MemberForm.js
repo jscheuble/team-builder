@@ -1,4 +1,26 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
+
+const Form = styled.form`
+    display: flex;
+    flex-direction: column;
+`;
+
+const Input = styled.input`
+    margin: 1%;
+`;
+
+const Button = styled.button`
+    max-width: 200px;
+    margin: 0 auto;
+    background: pink;
+
+    &:hover {
+        background: black;
+        color: white;
+    }
+`;
+
 
 export default function MemberForm(props) {
     const [member, setMember] = useState({
@@ -19,17 +41,17 @@ export default function MemberForm(props) {
     }
 
     return(
-        <form onSubmit={submitForm}>
+        <Form onSubmit={submitForm}>
             <label>Name: 
-                <input type='text' name='name' onChange={handleChange} value={member.name}></input>
+                <Input type='text' name='name' onChange={handleChange} value={member.name}></Input>
             </label>
             <label>Email:
-                <input type='email' name='email' onChange={handleChange} value={member.email}></input>
+                <Input type='email' name='email' onChange={handleChange} value={member.email}></Input>
             </label>
             <label>Role:
-                <input type='text' name='role' onChange={handleChange} value={member.role}></input>
+                <Input type='text' name='role' onChange={handleChange} value={member.role}></Input>
             </label>
-            <button type='submit'>Add member!</button>
-        </form>
+            <Button type='submit'>Add member!</Button>
+        </Form>
     );
 }
