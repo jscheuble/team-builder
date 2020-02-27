@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const Form = styled.form`
@@ -8,6 +8,10 @@ const Form = styled.form`
 
 const Input = styled.input`
     margin: 1%;
+
+    &:hover {
+        background: pink;
+    }
 `;
 
 const Button = styled.button`
@@ -39,6 +43,10 @@ export default function MemberForm(props) {
         props.addNewMember(member);
         setMember({name: '', email: '', role: ''})
     }
+
+    useEffect(() => {
+        setMember(props.memberToEdit);
+    }, [props.memberToEdit])
 
     return(
         <Form onSubmit={submitForm}>

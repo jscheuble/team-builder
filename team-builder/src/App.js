@@ -13,6 +13,14 @@ function App() {
       role: 'Web Dev Student'
     },
   ]);
+  const [memberToEdit, setMemberToEdit] = useState(
+    {
+      id: null,
+      name: '',
+      email: '',
+      role: ''
+    }
+  );
 
   const addNewMember = member => {
     const newMember = {
@@ -28,8 +36,8 @@ function App() {
   return (
     <div className="App">
       <h1>Team</h1>
-      <MemberForm addNewMember={addNewMember} />
-      <Members members={members}/>
+      <MemberForm addNewMember={addNewMember} memberToEdit={memberToEdit} setMemberToEdit={setMemberToEdit}/>
+      <Members members={members} />
     </div>
   );
 }
